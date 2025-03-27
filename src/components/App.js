@@ -12,10 +12,15 @@ function App() {
       .then((listings) => setListings(listings))
   }, []);
 
+  //callback function to delete items to pass as prop to ListingsContainer
+  function handleDeleteItem(updatedListing){
+    setListings(updatedListing)
+  }
+
   return (
     <div className="app">
       <Header />
-      <ListingsContainer listings={listings} />
+      <ListingsContainer listings={listings} handleDeleteItem={handleDeleteItem} />
     </div>
   );
 }
